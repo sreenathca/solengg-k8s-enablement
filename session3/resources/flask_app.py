@@ -1,12 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask
 import os
+import socket   
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/get_ip')
 def home():
-    return render_template('index.html')
+	hostname = socket.gethostname()   
+	IPAddr = socket.gethostbyname(hostname)
+	return f'<h1>Hostname: {hostname}\nIP Addr: {IPAddr}</h1>'
 
 
 if __name__ == "__main__":
