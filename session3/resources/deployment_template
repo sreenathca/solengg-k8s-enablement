@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: 
+        image:
+        imagePullPolicy: Never
         ports:
         - containerPort: 
